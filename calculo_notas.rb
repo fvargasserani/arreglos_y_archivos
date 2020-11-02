@@ -1,19 +1,29 @@
 def read_file(filename)
-    original_data = open(filename).readlines
-    original_data.split(',')
-    data = original_data.map { |x| x.to_i rescue nil }
+    original_data = open(filename).read.split(',')
+    data = original_data.map { |x| Integer(x) rescue nil }
+    n = data.size
+    new_data = []
+    n.times do |i|
+        n2 = data[i].size
+        n2.times do |j|
+            if data[i][j].is_a?(Integer)
+                new_data[i] << data[i][j]
+            end
+        end
+    end  
 end
 
-def nota_mas_alta(array)
-n = array.size   
+def nota_mas_alta(data)
+    n = data.size
     n.times do |i|
-        if array[i].is_a?(Integer)
-        array.max
+        n2 = data[i].size
+        n2.times do |j|
+            if data[i].is_a?(Array)
+                puts data[i].max
+            end
         end
     end
-end
+end  
 
 data = read_file('notas.data')
-
-nota_mas_alta(data[0])
-nota_mas_alta(data[1])
+puts nota_mas_alta(data[3])
