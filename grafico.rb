@@ -7,4 +7,18 @@ def chart(array)
         end
     print "\n"
     end
+    print ">"
+    n2 = array.max
+    (n2+1).times do |i|
+        if i > 0
+        print "--"
+        end
+    end
+    print "\n"
+    n2 = array.max
+    (n2+1).times do |i|
+        if i > 0
+        print " #{i}"
+        end
+    end
 end
