@@ -1,29 +1,18 @@
 def read_file(filename)
-    original_data = open(filename).read.split(',')
-    data = original_data.map { |x| Integer(x) rescue nil }
-    n = data.size
-    new_data = []
-    n.times do |i|
-        n2 = data[i].size
-        n2.times do |j|
-            if data[i][j].is_a?(Integer)
-                new_data[i] << data[i][j]
-            end
-        end
-    end  
+    grades = open(filename).readlines
 end
 
 def nota_mas_alta(data)
-    n = data.size
+n = data.size
+new_data = []
     n.times do |i|
-        n2 = data[i].size
-        n2.times do |j|
-            if data[i].is_a?(Array)
-                puts data[i].max
-            end
+        if i > 0
+            new_data << data[i].to_i
         end
-    end
-end  
+    end 
+    new_data.max 
+end
 
 data = read_file('notas.data')
-puts nota_mas_alta(data[3])
+puts nota_mas_alta(data[0])
+puts nota_mas_alta(data[1])
